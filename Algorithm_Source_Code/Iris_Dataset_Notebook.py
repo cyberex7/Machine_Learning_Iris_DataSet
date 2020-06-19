@@ -1,6 +1,7 @@
 import pandas as pd
 from pandas.plotting import scatter_matrix
 import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn import model_selection
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
@@ -81,4 +82,20 @@ print(confusion_matrix(Y_validation, predictions))
 print("\t=============================================\n")
 print(classification_report(Y_validation, predictions))
 
+plt.figure(figsize=(8,4))
+sns.heatmap(dataset.corr(), annot=True, cmap='cubehelix_r')
+# draws heatmap with input as correlation matrix calculated by iris.corr()
+plt.show()
+
+
+
+plt.figure(figsize=(15,10))
+plt.subplot(2,2,1)
+sns.violinplot(x='class', y = 'sepal-length', data=dataset)
+plt.subplot(2,2,2)
+sns.violinplot(x='class', y = 'sepal-width', data=dataset)
+plt.subplot(2,2,3)
+sns.violinplot(x='class', y = 'petal-length', data=dataset)
+plt.subplot(2,2,4)
+sns.violinplot(x='class', y = 'petal-width', data=dataset)
 

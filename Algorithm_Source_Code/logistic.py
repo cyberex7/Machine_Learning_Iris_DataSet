@@ -6,6 +6,8 @@ import pandas as pd
 import numpy as np
 from sklearn import datasets
 import pylab
+
+import time
 import matplotlib.pyplot as plt
 
 pylab.rcParams['figure.figsize'] = (10, 6)
@@ -17,7 +19,7 @@ from sklearn import linear_model, datasets
 
 import warnings
 
-
+start_time =time.time()
 def main():
     ## Load the iris data 
     iris = datasets.load_iris()
@@ -127,3 +129,5 @@ class Logistic(object):
 
 if __name__ == "__main__":
     main()
+# calculation of time of computation
+print(time.time()-start_time)
