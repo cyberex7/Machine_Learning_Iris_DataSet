@@ -2,6 +2,7 @@ import pandas as pd
 from pandas.plotting import scatter_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
+import time
 from sklearn import model_selection
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
@@ -13,7 +14,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 
-
+start_time =time.time()
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
 dataset = pd.read_csv(url, names=names)
@@ -89,7 +90,7 @@ plt.show()
 
 
 
-plt.figure(figsize=(15,10))
+
 plt.subplot(2,2,1)
 sns.violinplot(x='class', y = 'sepal-length', data=dataset)
 plt.subplot(2,2,2)
@@ -99,3 +100,4 @@ sns.violinplot(x='class', y = 'petal-length', data=dataset)
 plt.subplot(2,2,4)
 sns.violinplot(x='class', y = 'petal-width', data=dataset)
 
+print(time.time()-start_time)

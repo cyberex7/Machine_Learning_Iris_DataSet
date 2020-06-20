@@ -11,12 +11,13 @@ from sklearn import datasets
 pylab.rcParams['figure.figsize'] = (10, 6)
 from matplotlib.colors import ListedColormap
 import matplotlib.pyplot as plt
+import time
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
 
-
+start_time =time.time()
 def main():
     ## Load the iris data 
     iris = datasets.load_iris()
@@ -113,3 +114,4 @@ class Random_Forest(object):
 if __name__=="__main__":
    main()
 
+print(time.time()-start_time)

@@ -6,6 +6,7 @@ import numpy as np
 # Import data and modules
 import pandas as pd
 import pylab
+import time
 from sklearn import datasets
 
 pylab.rcParams['figure.figsize'] = (10, 6)
@@ -14,7 +15,7 @@ import matplotlib.pyplot as plt
 from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-
+start_time =time.time()
 
 def main():
     ## Load the iris data 
@@ -110,3 +111,4 @@ class SVM(object):
 
 if __name__=="__main__":
    main()
+print(time.time()-start_time)
